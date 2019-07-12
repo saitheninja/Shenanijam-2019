@@ -31,8 +31,7 @@ func state_default():
 		anim_switch("idle")
 	
 	if Input.is_action_just_pressed("a"):
-		pass
-		#	use_item(preload("res://items/sword.tscn"))
+		use_item(preload("res://Player/WrenchSwing.tscn"))
 	
 	if Input.is_action_just_pressed("b"):
 #		use_item(preload("res://items/bomb.tscn"))

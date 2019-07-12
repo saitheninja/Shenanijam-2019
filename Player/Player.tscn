@@ -224,6 +224,7 @@ radius = 6.0
 height = 2.0
 
 [node name="Player" type="KinematicBody2D"]
+z_index = 1
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -231,7 +232,6 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-flip_h = true
 hframes = 6
 frame = 2
 
