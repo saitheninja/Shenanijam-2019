@@ -2,8 +2,6 @@ extends "res://Engine/entity.gd"
 
 var state = "default"
 
-var keys = 0
-
 func _init():
 	TYPE = "PLAYER"
 
@@ -13,10 +11,8 @@ func _physics_process(delta):
 			state_default()
 		"swing":
 			state_swing()
-		"throw":
-			state_throw()
-
-	keys = min(keys, 9)
+#		"throw":
+#			state_throw()
 
 func state_default():
 	controls_loop()

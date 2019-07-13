@@ -3,7 +3,7 @@
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Art/Player/player.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "idledown"
 length = 0.5
 loop = true
@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 resource_name = "idleleft"
 length = 0.5
 loop = true
@@ -51,7 +51,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=3]
 resource_name = "idleright"
 length = 0.5
 loop = true
@@ -81,7 +81,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "idleup"
 length = 0.5
 loop = true
@@ -99,8 +99,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "walkdown"
+[sub_resource type="Animation" id=5]
 loop = true
 step = 0.5
 tracks/0/type = "value"
@@ -128,7 +127,7 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=6]
 resource_name = "walkleft"
 loop = true
 step = 0.5
@@ -157,7 +156,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=7]
 resource_name = "walkright"
 loop = true
 step = 0.5
@@ -215,11 +214,11 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=9]
 radius = 6.0
 height = 2.0
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=10]
 radius = 6.0
 height = 2.0
 
@@ -232,26 +231,26 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+flip_h = true
 hframes = 6
 frame = 2
 
 [node name="anim" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
-anims/idledown = SubResource( 4 )
-anims/idleleft = SubResource( 6 )
-anims/idleright = SubResource( 7 )
-anims/idleup = SubResource( 5 )
-anims/walkdown = SubResource( 2 )
-anims/walkleft = SubResource( 9 )
-anims/walkright = SubResource( 10 )
+anims/idledown = SubResource( 1 )
+anims/idleleft = SubResource( 2 )
+anims/idleright = SubResource( 3 )
+anims/idleup = SubResource( 4 )
+anims/walkdown = SubResource( 5 )
+anims/walkleft = SubResource( 6 )
+anims/walkright = SubResource( 7 )
 anims/walkup = SubResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource( 1 )
+shape = SubResource( 9 )
 
 [node name="hitbox" type="Area2D" parent="."]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-shape = SubResource( 3 )
+shape = SubResource( 10 )

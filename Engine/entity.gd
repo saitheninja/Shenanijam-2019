@@ -66,6 +66,8 @@ func damage_loop():
 				#	instance_scene(preload("res://pickups/heart.tscn"))
 			#instance_scene(preload("res://enemies/enemy_death.tscn"))
 			queue_free()
+		elif TYPE == "PLAYER" && health <= 0:
+			get_tree().change_scene("res://Player/PlayerDeath.tscn")
 	# returns a list of every kinematic or static body that the hitbox is colliding with
 	# for every body in that list
 	for area in $hitbox.get_overlapping_areas():

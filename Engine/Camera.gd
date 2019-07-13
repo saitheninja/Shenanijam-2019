@@ -1,7 +1,7 @@
 extends Camera2D
 
-const SCREEN_SIZE = Vector2(160,128)
-const HUD_THICKNESS = 16
+const SCREEN_SIZE = Vector2(160,144)
+#const HUD_THICKNESS = 16
 # rooms are all placed on a grid, this keeps track of which chunk of room we're in
 var grid_pos = Vector2(0,0)
 
@@ -23,8 +23,9 @@ func _ready():
 	connect_to_shakers()
 
 func _process(delta):
-	# get player position in room grid, set camera to same position
+	# get player global position, convert it to grid position, and store it
 	var player_grid_pos = get_grid_pos(get_node("../Player").global_position)
+	# place camera in the centre of correct grid pos
 	global_position = player_grid_pos * SCREEN_SIZE
 	grid_pos = player_grid_pos
 	# camera shake stuff
@@ -71,20 +72,23 @@ func connect_to_shakers() -> void:
 
 func get_grid_pos(pos):
 	# screen pos / screen size = no. of screens away
-	pos.y -= HUD_THICKNESS
+	#pos.y -= HUD_THICKNESS
 	var x = floor(pos.x / SCREEN_SIZE.x)
 	var y = floor(pos.y / SCREEN_SIZE.y)
 	return Vector2(x,y)
+	print(Vector2(x,y))
 
 func get_enemies():
 	var enemies = []
 	# for all bodies overlapping camera2d area
 	for body in $area.get_overlapping_bodies():
 		# use get so it doesn't crash if there is no type
+		# if body type is enemy, and it is not already in the array
 		if body.get("TYPE") == "ENEMY" && enemies.find(body) == -1:
-			# add enemies to array if they aren't there
+			# add enemies to array
 			enemies.append(body)
 	return enemies.size()
+	print(enemies)
 
 
 func body_entered(body):
