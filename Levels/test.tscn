@@ -1,7 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Art/Tilesets/tileset01.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
@@ -154,3 +156,8 @@ tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 1, -65535, 0, 1, -65534, 0, 1, -6
 position = Vector2( 79.8025, 67.8519 )
 SPEED = 50
 MAXHEALTH = 3
+
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 58.3704, 71.4074 )
+
+[node name="Camera" parent="." instance=ExtResource( 4 )]

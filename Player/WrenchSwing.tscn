@@ -269,6 +269,9 @@ extents = Vector2( 4, 4 )
 [node name="WrenchSwing" type="Node2D"]
 z_index = -1
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
