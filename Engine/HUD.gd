@@ -25,10 +25,14 @@ func _process(delta):
 		heart.position = Vector2(x,y)
 
 		# draw the correct frames
-		var last_heart = Player.health
+		var last_heart = floor(Player.health)
 		if index > last_heart:
 			heart.frame = 0
 		if index == last_heart:
-			heart.frame = 1
+			# remainder will be 0.5, multiply by 2 to get to frame 1
+			heart.frame = (Player.health - last_heart) * 2
 		if index < last_heart:
 			heart.frame = 2
+		
+		print(index)
+		print(Player.health)
