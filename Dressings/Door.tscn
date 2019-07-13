@@ -3,7 +3,7 @@
 [ext_resource path="res://Dressings/Door.gd" type="Script" id=1]
 [ext_resource path="res://Art/Dressings/door.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "close"
 step = 0.5
 tracks/0/type = "value"
@@ -43,8 +43,7 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "open"
+[sub_resource type="Animation" id=2]
 step = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -83,10 +82,10 @@ tracks/2/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8, 8 )
 
 [node name="Door" type="StaticBody2D"]
@@ -101,15 +100,15 @@ hframes = 2
 
 [node name="anim" type="AnimationPlayer" parent="."]
 playback_speed = 4.0
-anims/close = SubResource( 4 )
-anims/open = SubResource( 1 )
+anims/close = SubResource( 1 )
+anims/open = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="area" type="Area2D" parent="."]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )

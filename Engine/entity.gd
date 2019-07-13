@@ -20,6 +20,7 @@ var texture_hurt = null
 
 func _ready():
 	if TYPE == "ENEMY":
+		# set layer 2 collisions on so camera stops them from moving through
 		set_collision_mask_bit(1,1)
 		# only turn on enemies when in the room
 		set_physics_process(false)
