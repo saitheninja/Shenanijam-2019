@@ -50,3 +50,4 @@ position = Vector2( 78, 0 )
 shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true

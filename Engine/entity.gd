@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 signal camera_shake_requested
-signal frame_freeze_requested
 
 var TYPE  = "ENEMY"
 export(int) var SPEED
@@ -17,6 +16,7 @@ onready var health = MAXHEALTH
 var hitstun = 0
 var texture_default = null
 var texture_hurt = null
+var texture_die = null
 
 func _ready():
 	if TYPE == "ENEMY":
@@ -26,6 +26,8 @@ func _ready():
 		set_physics_process(false)
 	texture_default = $Sprite.texture
 	texture_hurt = load($Sprite.texture.get_path().replace(".png","_hurt.png"))
+	texture_die = load($Sprite.texture.get_path().replace(".png","_death.png"))
+	$anim.connect("animation_finished",self,"_on_anim_animation_finished")
 
 func movement_loop():
 	var motion 
@@ -60,15 +62,12 @@ func damage_loop():
 	else:
 		$Sprite.texture = texture_default
 		if TYPE == "ENEMY" && health <= 0:
-			# choose random int between 0 and 3, so 25% chance
-			var drop = randi() % 3
-			if drop == 0:
-				pass
-				#	instance_scene(preload("res://pickups/heart.tscn"))
 			#instance_scene(preload("res://enemies/enemy_death.tscn"))
 			queue_free()
 		elif TYPE == "PLAYER" && health <= 0:
-			get_tree().change_scene("res://Player/PlayerDeath.tscn")
+			$Sprite.texture = texture_die
+			$anim.play(str("die"))
+			
 	# returns a list of every kinematic or static body that the hitbox is colliding with
 	# for every body in that list
 	for area in $hitbox.get_overlapping_areas():
@@ -77,11 +76,14 @@ func damage_loop():
 		if hitstun == 0 and body.get("DAMAGE") != null and body.get("TYPE") != TYPE:
 			health -= body.get("DAMAGE")
 			hitstun = 10
-			# frame freeze in ms
-			emit_signal("frame_freeze_requested")
 			emit_signal("camera_shake_requested")
 			# transform.origin is the x and y
 			knockdir = global_transform.origin - body.global_transform.origin
+
+func _on_anim_animation_finished():
+	#if str($anim.play) == "die":
+	get_tree().change_scene("res://Player/PlayerDeath.tscn")
+
 
 # item variable that we're passing in will just be a direct path to the sword scene
 func use_item(item):

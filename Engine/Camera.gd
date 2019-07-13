@@ -1,8 +1,5 @@
 extends Camera2D
 
-#const SCREEN_SIZE = Vector2(160,144)
-#const HUD_THICKNESS = 16
-
 # camera shake stuff
 onready var timer = get_node("Timer")
 
@@ -35,7 +32,6 @@ func _on_Timer_timeout() -> void:
 
 # when signal is received, turn on shake
 func _on_camera_shake_requested() -> void:
-	print("signal received")
 	if not enabled:
 		return
 	set_shake(true)
@@ -49,17 +45,14 @@ func set_duration(value: float) -> void:
 func set_shake(value: bool) -> void:
 	shake = value
 	offset = Vector2()
-	print(offset)
 	if shake:
 		timer.start()
-		print(offset)
 	
 func connect_to_shakers() -> void:
 	# connect emmiters to this receiver
 	# emitters are all nodes in camera_shaker group
 	for camera_shaker in get_tree().get_nodes_in_group("camera_shaker"):
 		camera_shaker.connect("camera_shake_requested", self, "_on_camera_shake_requested")
-			
 
 
 func get_enemies():
@@ -72,7 +65,6 @@ func get_enemies():
 			# add enemies to array
 			enemies.append(body)
 	return enemies.size()
-	print(enemies)
 
 # turn enemies on when they are in frame
 func body_entered(body):

@@ -33,6 +33,3 @@ func _process(delta):
 			heart.frame = (Player.health - last_heart) * 2
 		if index < last_heart:
 			heart.frame = 2
-		
-		print(index)
-		print(Player.health)

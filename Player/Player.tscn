@@ -1,9 +1,26 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Art/Player/player.png" type="Texture" id=2]
 [ext_resource path="res://Player/GridSnapper.gd" type="Script" id=3]
 [ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=11]
+resource_name = "die"
+length = 3.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "idledown"
@@ -224,7 +241,9 @@ height = 2.0
 radius = 6.0
 height = 2.0
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"camera_shaker",
+]]
 z_index = 1
 script = ExtResource( 1 )
 __meta__ = {
@@ -239,6 +258,7 @@ frame = 2
 
 [node name="anim" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
+anims/die = SubResource( 11 )
 anims/idledown = SubResource( 1 )
 anims/idleleft = SubResource( 2 )
 anims/idleright = SubResource( 3 )
