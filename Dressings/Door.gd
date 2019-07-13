@@ -1,6 +1,7 @@
 extends StaticBody2D
 
-onready var Camera = get_node("../Camera")
+onready var Camera = get_node("../Player/GridSnapper/Camera")
+onready var Gridsnapper = get_node("../Player/GridSnapper")
 onready var Player = get_node("../Player")
 
 func _ready():
@@ -9,7 +10,7 @@ func _ready():
 func _process(delta):
     # make sure that doors are always open becuase then we won't walk up to it on the wrong side and not be able to get through
 	# if you've already opened it from one side
-	if Camera.grid_pos == Camera.get_grid_pos(global_position):
+	if Gridsnapper.grid_pos == Gridsnapper.get_grid_pos():
 		if Camera.get_enemies() == 0:
 			if $anim.assigned_animation != "open":
 				$anim.play("open")

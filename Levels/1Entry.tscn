@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Art/Tilesets/tileset01.tres" type="TileSet" id=1]
 [ext_resource path="res://Art/Dressings/dressings.tres" type="TileSet" id=2]
-[ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Enemies/Enemy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Dressings/Door.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemies/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Dressings/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=6]
 
 [node name="Node" type="Node"]
 
@@ -23,19 +22,17 @@ cell_size = Vector2( 8, 8 )
 format = 1
 tile_data = PoolIntArray( 16, 2, 0, 21, 1, 0, 26, 0, 0, 30, 2, 0, 31, 0, 0, 36, 0, 0, 39, 2, 0, 41, 1, 0, 65537, 0, 0, 65542, 0, 0, 65547, 0, 0, 131093, 0, 0, 131098, 0, 0, 131103, 0, 0, 131108, 1, 0, 131113, 1, 0, 196609, 0, 0, 196614, 0, 0, 196619, 0, 0, 262165, 1, 0, 262170, 0, 0, 262175, 1, 0, 262180, 0, 0, 262185, 1, 0, 327681, 0, 0, 327686, 0, 0, 327691, 0, 0, 458753, 0, 0, 589825, 0, 0, 720897, 0, 0, 720902, 1, 0, 720907, 0, 0, 720917, 0, 0, 720922, 0, 0, 720927, 0, 0, 720932, 0, 0, 720937, 1, 0, 851969, 0, 0, 851974, 0, 0, 851979, 0, 0, 851989, 1, 0, 851994, 0, 0, 851999, 1, 0, 852004, 0, 0, 852009, 1, 0, 983041, 0, 0, 983046, 0, 0, 983051, 0, 0, 983061, 0, 0, 983066, 0, 0, 983071, 0, 0, 983076, 0, 0, 983081, 1, 0, 1114128, 3, 0, 1114142, 3, 0, 1114151, 3, 0 )
 
-[node name="Camera" parent="." instance=ExtResource( 3 )]
-
-[node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 60, 86 )
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 80, 73 )
 SPEED = 40
 MAXHEALTH = 8
 
-[node name="Enemy" parent="." instance=ExtResource( 5 )]
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 81, 73 )
 
-[node name="Door" parent="." instance=ExtResource( 6 )]
+[node name="Door" parent="." instance=ExtResource( 5 )]
 position = Vector2( 152, 72 )
 rotation = 1.5708
 
-[node name="HUD" parent="." instance=ExtResource( 7 )]
-layer = -10
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+layer = 0
