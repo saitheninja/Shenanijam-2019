@@ -14,7 +14,9 @@ func _ready():
 		$hearts.add_child(new_heart)
 
 func _process(delta):
+	# iterate through each child of 'hearts' node; create variable called heart
 	for heart in $hearts.get_children():
+		# get index (number in iteration) 
 		var index = heart.get_index()
 
 		# chooses the correct x, y position to place the heart
@@ -23,10 +25,10 @@ func _process(delta):
 		heart.position = Vector2(x,y)
 
 		# draw the correct frames
-		var last_heart = floor(Player.health)
+		var last_heart = Player.health
 		if index > last_heart:
 			heart.frame = 0
 		if index == last_heart:
-			heart.frame = (Player.health - last_heart) * 2
+			heart.frame = 1
 		if index < last_heart:
 			heart.frame = 2
