@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Enemies/BossBody.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/BossTentacle1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/BossTentacle2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemies/BossTentacle3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemies/BossMouth.tscn" type="PackedScene" id=5]
+
+[node name="BossAll" type="Area2D"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BossBody" parent="." instance=ExtResource( 1 )]
+position = Vector2( -48, 0 )
+
+[node name="BossBody2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -16, 0 )
+
+[node name="BossBody3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 16, 0 )
+
+[node name="BossBody4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 48, 0 )
+
+[node name="BossBody5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 80, 0 )
+
+[node name="BossBody6" parent="." instance=ExtResource( 1 )]
+position = Vector2( -80, 0 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="BossTentacle1" parent="." instance=ExtResource( 2 )]
+position = Vector2( -59, 16 )
+MAXHEALTH = 1
+
+[node name="BossTentacle11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 59, 16 )
+scale = Vector2( -1, 1 )
+MAXHEALTH = 1
+
+[node name="BossTentacle2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -40, 16 )
+MAXHEALTH = 1
+
+[node name="BossTentacle22" parent="." instance=ExtResource( 3 )]
+position = Vector2( 39, 16 )
+scale = Vector2( -1, 1 )
+MAXHEALTH = 1
+
+[node name="BossTentacle3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -20, 16 )
+MAXHEALTH = 1
+
+[node name="BossTentacle33" parent="." instance=ExtResource( 4 )]
+position = Vector2( 20, 16 )
+scale = Vector2( -1, 1 )
+MAXHEALTH = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="anim" type="AnimationPlayer" parent="."]
+
+[node name="BossMouth" parent="." instance=ExtResource( 5 )]

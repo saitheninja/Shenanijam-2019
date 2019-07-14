@@ -3,8 +3,9 @@
 [ext_resource path="res://Enemies/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Art/Enemies/enemy.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=7]
 resource_name = "down"
+loop = true
 step = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -31,8 +32,9 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=8]
 resource_name = "left"
+loop = true
 step = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -59,8 +61,9 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "right"
+loop = true
 step = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -87,8 +90,9 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "up"
+loop = true
 step = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -115,10 +119,10 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 7, 7 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 7, 7 )
 
 [node name="Enemy" type="KinematicBody2D"]
@@ -136,20 +140,19 @@ hframes = 4
 frame = 3
 
 [node name="anim" type="AnimationPlayer" parent="."]
-playback_speed = 8.0
-anims/down = SubResource( 3 )
-anims/left = SubResource( 4 )
-anims/right = SubResource( 5 )
-anims/up = SubResource( 6 )
+anims/down = SubResource( 7 )
+anims/left = SubResource( 8 )
+anims/right = SubResource( 3 )
+anims/up = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0, 1 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="hitbox" type="Area2D" parent="."]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2( 0, 1 )
-shape = SubResource( 1 )
+shape = SubResource( 6 )

@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Enemies/BossTentacle.gd" type="Script" id=1]
+[ext_resource path="res://Art/Enemies/boss_tentacles.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5, 14 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "wiggle"
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 3 ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 5, 14 )
+
+[node name="BossTentacle1" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 6
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -2 )
+shape = SubResource( 1 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+playback_speed = 2.0
+anims/wiggle = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="hitbox" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2( 0, -2 )
+shape = SubResource( 4 )

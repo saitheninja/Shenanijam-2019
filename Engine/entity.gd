@@ -27,15 +27,16 @@ func _ready():
 	elif TYPE == "PLAYER":
 		texture_die = load($Sprite.texture.get_path().replace(".png","_death.png"))
 		$anim.connect("animation_finished",self,"_on_anim_animation_finished")
-	texture_default = $Sprite.texture
-	texture_hurt = load($Sprite.texture.get_path().replace(".png","_hurt.png"))
+	if $Sprite.texture != null: 
+		texture_default = $Sprite.texture
+		texture_hurt = load($Sprite.texture.get_path().replace(".png","_hurt.png"))
 
 func movement_loop():
 	var motion 
 	if hitstun == 0:
 		motion = movedir.normalized() * SPEED
 	else:
-		motion = knockdir.normalized() * 125 
+		motion = knockdir.normalized() * 100 
 	move_and_slide(motion, Vector2(0,0))
 
 func spritedir_loop():

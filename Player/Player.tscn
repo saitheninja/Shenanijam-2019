@@ -5,7 +5,7 @@
 [ext_resource path="res://Player/GridSnapper.gd" type="Script" id=3]
 [ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=1]
 resource_name = "die"
 length = 6.0
 step = 1.0
@@ -22,8 +22,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "idledown"
+[sub_resource type="Animation" id=2]
 length = 0.5
 loop = true
 step = 0.5
@@ -40,8 +39,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "idleleft"
+[sub_resource type="Animation" id=3]
 length = 0.5
 loop = true
 step = 0.5
@@ -70,8 +68,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "idleright"
+[sub_resource type="Animation" id=4]
 length = 0.5
 loop = true
 step = 0.5
@@ -100,8 +97,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "idleup"
+[sub_resource type="Animation" id=5]
 length = 0.5
 loop = true
 step = 0.5
@@ -118,7 +114,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 loop = true
 step = 0.5
 tracks/0/type = "value"
@@ -146,8 +142,7 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "walkleft"
+[sub_resource type="Animation" id=7]
 loop = true
 step = 0.5
 tracks/0/type = "value"
@@ -175,8 +170,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "walkright"
+[sub_resource type="Animation" id=8]
 loop = true
 step = 0.5
 tracks/0/type = "value"
@@ -204,8 +198,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "walkup"
+[sub_resource type="Animation" id=9]
 loop = true
 step = 0.5
 tracks/0/type = "value"
@@ -233,11 +226,11 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="CapsuleShape2D" id=9]
+[sub_resource type="CapsuleShape2D" id=10]
 radius = 6.0
 height = 3.0
 
-[sub_resource type="CapsuleShape2D" id=10]
+[sub_resource type="CapsuleShape2D" id=11]
 radius = 7.0
 height = 3.0
 
@@ -257,23 +250,25 @@ hframes = 6
 
 [node name="anim" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
-anims/die = SubResource( 15 )
-anims/idledown = SubResource( 1 )
-anims/idleleft = SubResource( 2 )
-anims/idleright = SubResource( 3 )
-anims/idleup = SubResource( 4 )
-anims/walkdown = SubResource( 5 )
-anims/walkleft = SubResource( 6 )
-anims/walkright = SubResource( 7 )
-anims/walkup = SubResource( 8 )
+anims/die = SubResource( 1 )
+anims/idledown = SubResource( 2 )
+anims/idleleft = SubResource( 3 )
+anims/idleright = SubResource( 4 )
+anims/idleup = SubResource( 5 )
+anims/walkdown = SubResource( 6 )
+anims/walkleft = SubResource( 7 )
+anims/walkright = SubResource( 8 )
+anims/walkup = SubResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 9 )
+visible = false
+shape = SubResource( 10 )
 
 [node name="hitbox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="GridSnapper" type="Position2D" parent="."]
 visible = false
