@@ -5,9 +5,9 @@
 [ext_resource path="res://Player/GridSnapper.gd" type="Script" id=3]
 [ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=15]
 resource_name = "die"
-length = 3.0
+length = 6.0
 step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -16,7 +16,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
+"times": PoolRealArray( 0, 2, 4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2 ]
@@ -235,11 +235,11 @@ tracks/1/keys = {
 
 [sub_resource type="CapsuleShape2D" id=9]
 radius = 6.0
-height = 2.0
+height = 3.0
 
 [sub_resource type="CapsuleShape2D" id=10]
-radius = 6.0
-height = 2.0
+radius = 7.0
+height = 3.0
 
 [node name="Player" type="KinematicBody2D" groups=[
 "camera_shaker",
@@ -254,11 +254,10 @@ __meta__ = {
 texture = ExtResource( 2 )
 flip_h = true
 hframes = 6
-frame = 2
 
 [node name="anim" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
-anims/die = SubResource( 11 )
+anims/die = SubResource( 15 )
 anims/idledown = SubResource( 1 )
 anims/idleleft = SubResource( 2 )
 anims/idleright = SubResource( 3 )
@@ -269,11 +268,9 @@ anims/walkright = SubResource( 7 )
 anims/walkup = SubResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 9 )
 
 [node name="hitbox" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource( 10 )

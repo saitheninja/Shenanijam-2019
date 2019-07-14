@@ -24,10 +24,11 @@ func _ready():
 		set_collision_mask_bit(1,1)
 		# only turn on enemies when in the room
 		set_physics_process(false)
+	elif TYPE == "PLAYER":
+		texture_die = load($Sprite.texture.get_path().replace(".png","_death.png"))
+		$anim.connect("animation_finished",self,"_on_anim_animation_finished")
 	texture_default = $Sprite.texture
 	texture_hurt = load($Sprite.texture.get_path().replace(".png","_hurt.png"))
-	texture_die = load($Sprite.texture.get_path().replace(".png","_death.png"))
-	$anim.connect("animation_finished",self,"_on_anim_animation_finished")
 
 func movement_loop():
 	var motion 
@@ -66,7 +67,13 @@ func damage_loop():
 			queue_free()
 		elif TYPE == "PLAYER" && health <= 0:
 			$Sprite.texture = texture_die
-			$anim.play(str("die"))
+			#anim_switch("die")
+			$anim.play("die")
+			on_anim_animation_finished("die")
+			#hitstun = 100
+			#yield(get_node("anim"), "animation_finished")
+			#yield(get_tree().create_timer(3.0), "timeout")
+			#get_tree().change_scene("res://Player/PlayerDeath.tscn")
 			
 	# returns a list of every kinematic or static body that the hitbox is colliding with
 	# for every body in that list
@@ -80,10 +87,9 @@ func damage_loop():
 			# transform.origin is the x and y
 			knockdir = global_transform.origin - body.global_transform.origin
 
-func _on_anim_animation_finished():
-	#if str($anim.play) == "die":
+func on_anim_animation_finished(animation):
+	#if $anim.current_animation("die"):
 	get_tree().change_scene("res://Player/PlayerDeath.tscn")
-
 
 # item variable that we're passing in will just be a direct path to the sword scene
 func use_item(item):
