@@ -63,3 +63,4 @@ MAXHEALTH = 1
 [node name="anim" type="AnimationPlayer" parent="."]
 
 [node name="BossMouth" parent="." instance=ExtResource( 5 )]
+MAXHEALTH = 3
