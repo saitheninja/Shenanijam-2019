@@ -231,7 +231,7 @@ radius = 6.0
 height = 3.0
 
 [sub_resource type="CapsuleShape2D" id=11]
-radius = 7.0
+radius = 8.0
 height = 3.0
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -247,6 +247,7 @@ __meta__ = {
 texture = ExtResource( 2 )
 flip_h = true
 hframes = 6
+frame = 2
 
 [node name="anim" type="AnimationPlayer" parent="."]
 playback_speed = 2.0

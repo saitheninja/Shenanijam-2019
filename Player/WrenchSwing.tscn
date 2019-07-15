@@ -3,7 +3,7 @@
 [ext_resource path="res://Player/WrenchSwing.gd" type="Script" id=1]
 [ext_resource path="res://Art/Wrench/wrench.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "swingdown"
 length = 2.5
 step = 0.5
@@ -68,7 +68,7 @@ tracks/4/keys = {
 "values": [ Vector2( -10, 0 ), Vector2( 0, 10 ), Vector2( 10, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "swingleft"
 length = 2.5
 step = 0.5
@@ -133,7 +133,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, -10 ), Vector2( -10, 0 ), Vector2( 0, 10 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "swingright"
 length = 2.5
 step = 0.5
@@ -198,8 +198,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, -10 ), Vector2( 10, 0 ), Vector2( 0, 10 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "swingup"
+[sub_resource type="Animation" id=4]
 length = 2.5
 step = 0.5
 tracks/0/type = "value"
@@ -263,7 +262,7 @@ tracks/4/keys = {
 "values": [ Vector2( -10, 0 ), Vector2( 0, -10 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 4, 4 )
 
 [node name="WrenchSwing" type="Node2D"]
@@ -281,13 +280,13 @@ hframes = 3
 
 [node name="anim" type="AnimationPlayer" parent="."]
 playback_speed = 8.0
-anims/swingdown = SubResource( 4 )
-anims/swingleft = SubResource( 5 )
-anims/swingright = SubResource( 6 )
-anims/swingup = SubResource( 3 )
+anims/swingdown = SubResource( 1 )
+anims/swingleft = SubResource( 2 )
+anims/swingright = SubResource( 3 )
+anims/swingup = SubResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 0, 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 2 )
+shape = SubResource( 5 )

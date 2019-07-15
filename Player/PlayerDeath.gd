@@ -10,4 +10,3 @@ func _on_RestartButton_pressed():
 
 func _on_FadeIn_fade_finished():
 	get_tree().change_scene("res://Levels/1Entry.tscn")
-	print("hi")

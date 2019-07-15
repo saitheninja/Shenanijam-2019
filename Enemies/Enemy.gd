@@ -2,7 +2,7 @@ extends "res://Engine/entity.gd"
 
 const DAMAGE = 0.5 
 
-var movetimer_length = 15
+var movetimer_length = 30 
 var movetimer = 0
 
 func _ready():

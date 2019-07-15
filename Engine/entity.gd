@@ -68,7 +68,6 @@ func damage_loop():
 			queue_free()
 		elif TYPE == "PLAYER" && health <= 0:
 			$Sprite.texture = texture_die
-			#anim_switch("die")
 			$anim.play("die")
 			on_anim_animation_finished("die")
 			#hitstun = 100
@@ -89,7 +88,6 @@ func damage_loop():
 			knockdir = global_transform.origin - body.global_transform.origin
 
 func on_anim_animation_finished(animation):
-	#if $anim.current_animation("die"):
 	get_tree().change_scene("res://Player/PlayerDeath.tscn")
 
 # item variable that we're passing in will just be a direct path to the sword scene

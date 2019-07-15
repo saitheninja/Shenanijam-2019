@@ -6,6 +6,7 @@ func _init():
 	TYPE = "PLAYER"
 
 func _physics_process(delta):
+	damage_loop()
 	match state:
 		"default":
 			state_default()
@@ -18,7 +19,6 @@ func state_default():
 	controls_loop()
 	movement_loop()
 	spritedir_loop()
-	#damage_loop()
 
 	# if we are not standing still, choose the correct animation
 	if movedir != Vector2(0, 0):
@@ -36,7 +36,7 @@ func state_default():
 func state_swing():
 	anim_switch("idle")
 	movement_loop()
-	damage_loop()
+	#damage_loop()
 	movedir = dir.centre
 
 func state_throw():

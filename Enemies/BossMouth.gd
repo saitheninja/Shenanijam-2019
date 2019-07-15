@@ -10,10 +10,8 @@ onready var timer = $Timer
 func _ready():
 	$anim.play("wiggle")
 	timer.set_one_shot(true)
-	set_process(true)
-	
 
-func _process(delta):
+func _physics_process(delta):
 	damage_loop()
 	if timer.is_stopped():
 		create_bullet()
@@ -21,8 +19,9 @@ func _process(delta):
 
 func create_bullet():
 	var bullet = BULLET_SCENE.instance()
-	bullet.position.x = self.get_global_position().x
-	bullet.position.y = self.get_global_position().y
+	bullet.global_position = global_position
+#	bullet.global_position.x = global_position.x - 50 
+#	bullet.global_position.y = global_position.y
 	$"/root/1Entry/bullets".add_child(bullet)
 
 func restart_timer():
