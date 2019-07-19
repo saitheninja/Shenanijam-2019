@@ -13,9 +13,9 @@ size = 22
 extra_spacing_bottom = -4
 font_data = ExtResource( 4 )
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 8
 font_data = ExtResource( 4 )
 
@@ -61,20 +61,22 @@ valign = 1
 uppercase = true
 
 [node name="NewGameButton" parent="Menu/Buttons" instance=ExtResource( 5 )]
-margin_left = 20.0
+margin_left = 50.0
 margin_top = 55.0
-margin_right = 140.0
+margin_right = 110.0
 margin_bottom = 75.0
-rect_min_size = Vector2( 120, 16 )
+rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 4
-custom_styles/focus = SubResource( 3 )
+size_flags_vertical = 4
+custom_styles/focus = SubResource( 2 )
+button_mask = 0
 
-[node name="Version" type="Label" parent="Menu/Buttons"]
+[node name="how to start" type="Label" parent="Menu/Buttons"]
 margin_top = 79.0
 margin_right = 160.0
 margin_bottom = 89.0
-custom_fonts/font = SubResource( 2 )
-text = "v1.0"
+custom_fonts/font = SubResource( 3 )
+text = "press enter"
 align = 1
 uppercase = true
 

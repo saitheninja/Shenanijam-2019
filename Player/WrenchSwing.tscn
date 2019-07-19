@@ -67,6 +67,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Vector2( -10, 0 ), Vector2( 0, 10 ), Vector2( 10, 0 ) ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Area2D/CollisionShape2D:shape:extents")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 6, 4 ), Vector2( 6, 6 ), Vector2( 4, 6 ), Vector2( 6, 6 ), Vector2( 6, 4 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1, 0 ), Vector2( 0, 1 ), Vector2( 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "swingleft"
@@ -263,7 +287,7 @@ tracks/4/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 4, 4 )
+extents = Vector2( 6, 4 )
 
 [node name="WrenchSwing" type="Node2D"]
 z_index = -1
@@ -274,9 +298,10 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-offset = Vector2( 0, 10 )
+offset = Vector2( 10, 0 )
 flip_v = true
 hframes = 3
+frame = 2
 
 [node name="anim" type="AnimationPlayer" parent="."]
 playback_speed = 8.0
@@ -286,7 +311,8 @@ anims/swingright = SubResource( 3 )
 anims/swingup = SubResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 0, 10 )
+position = Vector2( 10, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 1, 0 )
 shape = SubResource( 5 )
