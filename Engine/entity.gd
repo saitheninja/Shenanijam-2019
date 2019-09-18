@@ -8,6 +8,8 @@ export(int) var SPEED
 var movedir = Vector2(0,0)
 var knockdir = Vector2(0,0)
 var spritedir = "down"
+var audioplayer = AudioStreamPlayer.new()
+#onready var audioplayer = $AudioStreamPlayer
 
 export(int) var MAXHEALTH
 
@@ -19,6 +21,7 @@ var texture_hurt = null
 var texture_die = null
 
 func _ready():
+	self.add_child(audioplayer)
 	if TYPE == "ENEMY":
 		# set layer 2 collisions on so camera stops them from moving through
 		set_collision_mask_bit(1,1)
@@ -30,6 +33,7 @@ func _ready():
 	if $Sprite.texture != null: 
 		texture_default = $Sprite.texture
 		texture_hurt = load($Sprite.texture.get_path().replace(".png","_hurt.png"))
+
 
 func movement_loop():
 	var motion 
@@ -64,16 +68,12 @@ func damage_loop():
 	else:
 		$Sprite.texture = texture_default
 		if TYPE == "ENEMY" && health <= 0:
-			#instance_scene(preload("res://enemies/enemy_death.tscn"))
+			audioplayer.stop()
 			queue_free()
 		elif TYPE == "PLAYER" && health <= 0:
 			$Sprite.texture = texture_die
 			$anim.play("die")
 			on_anim_animation_finished("die")
-			#hitstun = 100
-			#yield(get_node("anim"), "animation_finished")
-			#yield(get_tree().create_timer(3.0), "timeout")
-			#get_tree().change_scene("res://Player/PlayerDeath.tscn")
 			
 	# returns a list of every kinematic or static body that the hitbox is colliding with
 	# for every body in that list

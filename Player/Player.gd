@@ -36,7 +36,7 @@ func state_default():
 func state_swing():
 	anim_switch("idle")
 	movement_loop()
-	#damage_loop()
+	damage_loop()
 	movedir = dir.centre
 
 func state_throw():

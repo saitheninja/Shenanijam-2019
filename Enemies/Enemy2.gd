@@ -8,6 +8,9 @@ var movetimer = 0
 func _ready():
 	$anim.play("down")
 	movedir = dir.rand()
+	#audioplayer.stream = load("res://Sounds/enemysmall.wav")
+	audioplayer.set_bus("enemysmall")
+	#audioplayer.play()
 
 func _physics_process(delta):
 	movement_loop()

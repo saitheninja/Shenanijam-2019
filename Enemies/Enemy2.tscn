@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Enemies/Enemy2.gd" type="Script" id=1]
 [ext_resource path="res://Art/Enemies/enemy2.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/enemysmall.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "down"
@@ -129,6 +130,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+SPEED = 150
+MAXHEALTH = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -152,3 +155,7 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2( 0, 4 )
 shape = SubResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -60.0

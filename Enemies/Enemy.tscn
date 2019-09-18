@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Enemies/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Art/Enemies/enemy.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/enemy.wav" type="AudioStream" id=3]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=1]
 resource_name = "down"
 loop = true
 step = 0.5
@@ -32,7 +33,7 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=2]
 resource_name = "left"
 loop = true
 step = 0.5
@@ -140,8 +141,8 @@ hframes = 4
 frame = 3
 
 [node name="anim" type="AnimationPlayer" parent="."]
-anims/down = SubResource( 7 )
-anims/left = SubResource( 8 )
+anims/down = SubResource( 1 )
+anims/left = SubResource( 2 )
 anims/right = SubResource( 3 )
 anims/up = SubResource( 4 )
 
@@ -156,3 +157,7 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2( 0, 1 )
 shape = SubResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -30.0

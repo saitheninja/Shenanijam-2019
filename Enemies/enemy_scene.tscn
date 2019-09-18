@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Art/Enemies/enemy.png" type="Texture" id=1]
+[ext_resource path="res://Art/Enemies/enemy2.png" type="Texture" id=2]
+
+[node name="enemy_tileset" type="Node"]
+
+[node name="Enemy" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="Enemy2" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 2
