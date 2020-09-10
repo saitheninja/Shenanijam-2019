@@ -11,7 +11,7 @@ dest_files=[ "res://.import/noise.wav-fbb34053b1793daf234842ffa9dcc963.sample" ]
 
 [params]
 
-force/8_bit=false
+force/8_bit=true
 force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100

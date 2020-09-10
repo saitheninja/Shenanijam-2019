@@ -30,17 +30,17 @@ func _ready():
 	elif TYPE == "PLAYER":
 		texture_die = load($Sprite.texture.get_path().replace(".png","_death.png"))
 		$anim.connect("animation_finished",self,"_on_anim_animation_finished")
-	if $Sprite.texture != null: 
+	if $Sprite.texture != null:
 		texture_default = $Sprite.texture
 		texture_hurt = load($Sprite.texture.get_path().replace(".png","_hurt.png"))
 
 
 func movement_loop():
-	var motion 
+	var motion
 	if hitstun == 0:
 		motion = movedir.normalized() * SPEED
 	else:
-		motion = knockdir.normalized() * 100 
+		motion = knockdir.normalized() * 100
 	move_and_slide(motion, Vector2(0,0))
 
 func spritedir_loop():
@@ -74,7 +74,7 @@ func damage_loop():
 			$Sprite.texture = texture_die
 			$anim.play("die")
 			on_anim_animation_finished("die")
-			
+
 	# returns a list of every kinematic or static body that the hitbox is colliding with
 	# for every body in that list
 	for area in $hitbox.get_overlapping_areas():
@@ -87,7 +87,7 @@ func damage_loop():
 			# transform.origin is the x and y
 			knockdir = global_transform.origin - body.global_transform.origin
 
-func on_anim_animation_finished(animation):
+func on_anim_animation_finished(_animation):
 	get_tree().change_scene("res://Player/PlayerDeath.tscn")
 
 # item variable that we're passing in will just be a direct path to the sword scene

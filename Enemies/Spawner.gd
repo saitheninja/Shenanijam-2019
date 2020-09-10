@@ -20,6 +20,6 @@ func _on_timer_timeout():
 	get_parent().add_child(spawnInstance)
 	spawnInstance.set_global_transform(get_global_transform())
 	print(get_global_transform())
-	
+
 	timerNode.set_wait_time(rand_range(minWaitTime, maxWaitTime))
 	timerNode.start()

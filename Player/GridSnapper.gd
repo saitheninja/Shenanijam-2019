@@ -4,13 +4,13 @@ const SCREEN_SIZE = Vector2(160,144)
 var grid_pos = Vector2()
 
 # this var doesn't load in for some reason, so i just put it in the function
-#onready var parent = get_parent() 
+#onready var parent = get_parent()
 
 func _ready():
 	set_as_toplevel(true)
 	get_grid_pos()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_grid_pos()
 
 func get_grid_pos():

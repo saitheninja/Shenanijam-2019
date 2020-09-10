@@ -1,4 +1,4 @@
-extends "res://Engine/entity.gd" 
+extends "res://Engine/entity.gd"
 
 export(int) var wait_time
 
@@ -20,7 +20,7 @@ func _physics_process(delta):
 func create_bullet():
 	var bullet = BULLET_SCENE.instance()
 	bullet.global_position = global_position
-#	bullet.global_position.x = global_position.x - 50 
+#	bullet.global_position.x = global_position.x - 50
 #	bullet.global_position.y = global_position.y
 	$"/root/1Entry/bullets".add_child(bullet)
 

@@ -3,7 +3,7 @@
 [ext_resource path="res://Enemies/BossBody.gd" type="Script" id=1]
 [ext_resource path="res://Art/Enemies/boss_body.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "wiggle"
 loop = true
 step = 0.5
@@ -31,6 +31,6 @@ texture = ExtResource( 2 )
 hframes = 2
 
 [node name="anim" type="AnimationPlayer" parent="."]
-anims/wiggle = SubResource( 3 )
+anims/wiggle = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]

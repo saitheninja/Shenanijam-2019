@@ -17,7 +17,7 @@ func _ready():
 	set_duration(duration)
 	connect_to_shakers()
 
-func _process(delta):
+func _process(_delta):
 	if shake:
 		var damping : = ease(timer.time_left / timer.wait_time, DAMP_EASING)
 		randomize()
@@ -47,7 +47,7 @@ func set_shake(value: bool) -> void:
 	offset = Vector2()
 	if shake:
 		timer.start()
-	
+
 func connect_to_shakers() -> void:
 	# connect emmiters to this receiver
 	# emitters are all nodes in camera_shaker group

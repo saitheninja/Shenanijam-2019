@@ -11,7 +11,7 @@ dest_files=[ "res://.import/enemy.wav-e2f325f6080b0055d8480961e5096702.sample" ]
 
 [params]
 
-force/8_bit=false
+force/8_bit=true
 force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100

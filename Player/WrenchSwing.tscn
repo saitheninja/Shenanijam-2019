@@ -181,7 +181,7 @@ tracks/6/keys = {
 "values": [ 90.0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "swingright"
 length = 2.5
 step = 0.5
@@ -270,7 +270,7 @@ tracks/6/keys = {
 "values": [ -90.0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "swingup"
 length = 2.5
 step = 0.5
@@ -359,7 +359,7 @@ tracks/6/keys = {
 "values": [ -180.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 6, 4 )
 
 [node name="WrenchSwing" type="Node2D"]
@@ -380,12 +380,12 @@ frame = 2
 playback_speed = 8.0
 anims/swingdown = SubResource( 1 )
 anims/swingleft = SubResource( 2 )
-anims/swingright = SubResource( 4 )
-anims/swingup = SubResource( 6 )
+anims/swingright = SubResource( 3 )
+anims/swingup = SubResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 10, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 1, 0 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )

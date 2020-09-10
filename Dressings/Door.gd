@@ -19,4 +19,4 @@ func _process(delta):
 	# open if camera is not in door's grid position (so that you can always go back through a door you've opened)
 	else:
 		if $anim.assigned_animation != "open":
-            $anim.play("open")
+			$anim.play("open")

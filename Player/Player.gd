@@ -1,11 +1,11 @@
-extends "res://Engine/entity.gd" 
+extends "res://Engine/entity.gd"
 
 var state = "default"
 
 func _init():
 	TYPE = "PLAYER"
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	damage_loop()
 	match state:
 		"default":
@@ -25,10 +25,10 @@ func state_default():
 		anim_switch("walk")
 	else:
 		anim_switch("idle")
-	
+
 	if Input.is_action_just_pressed("a"):
 		use_item(preload("res://Player/WrenchSwing.tscn"))
-	
+
 	if Input.is_action_just_pressed("b"):
 #		use_item(preload("res://items/bomb.tscn"))
 		pass

@@ -1,4 +1,4 @@
-extends Control 
+extends Control
 
 func _ready():
 	$Menu/Buttons/RestartButton.grab_focus()

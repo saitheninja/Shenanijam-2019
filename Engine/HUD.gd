@@ -13,10 +13,10 @@ func _ready():
 		new_heart.hframes = $hearts.hframes
 		$hearts.add_child(new_heart)
 
-func _process(delta):
+func _process(_delta):
 	# iterate through each child of 'hearts' node; create variable called heart
 	for heart in $hearts.get_children():
-		# get index (number in iteration) 
+		# get index (number in iteration)
 		var index = heart.get_index()
 
 		# chooses the correct x, y position to place the heart

@@ -4,7 +4,7 @@
 
 ### v1.0
 
-[Play here. 🎮️](https://saitheninja.itch.io)
+[Play here 🎮️](https://saitheninja.itch.io)
 
 Made with the Godot v3.1 engine.
 **Fun fact:** it took 45 to 50 hours of work, over a 72 hour jam.
@@ -12,7 +12,6 @@ Made with the Godot v3.1 engine.
 ### Resources
 
 - [Font](https://www.dafont.com/early-gameboy.font)
-- Audio from [Stephen Beckett, Not I](https://www.youtube.com/watch?v=M4LDwfKxr-M)
 - Noise by me banging away on an LMMS VST
 - Art by me
 - Good code by the helpful tutorial makers of the internet

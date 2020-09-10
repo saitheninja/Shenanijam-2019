@@ -1,4 +1,4 @@
-extends "res://Engine/entity.gd" 
+extends "res://Engine/entity.gd"
 
 const DAMAGE = 1
 
@@ -6,7 +6,7 @@ func _ready():
 	set_process(true)
 	movedir = Vector2(-1,0)
 
-func _process(delta):
+func _process(_delta):
 	damage_loop()
 	movement_loop()
 

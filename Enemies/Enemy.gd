@@ -1,8 +1,8 @@
 extends "res://Engine/entity.gd"
 
-const DAMAGE = 0.5 
+const DAMAGE = 0.5
 
-var movetimer_length = 30 
+var movetimer_length = 30
 var movetimer = 0
 
 func _ready():
@@ -15,7 +15,7 @@ func _ready():
 	audioplayer.play()
 #	print(audioplayer.get_stream_playback())
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	movement_loop()
 	damage_loop()
 

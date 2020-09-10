@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 14 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "wiggle"
 loop = true
 step = 0.5
@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 5, 14 )
 
 [node name="BossTentacle1" type="KinematicBody2D"]
@@ -43,7 +43,7 @@ shape = SubResource( 1 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
 playback_speed = 4.0
-anims/wiggle = SubResource( 7 )
+anims/wiggle = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -52,4 +52,4 @@ visible = false
 position = Vector2( 0, -2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
