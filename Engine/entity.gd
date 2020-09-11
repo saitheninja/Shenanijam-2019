@@ -29,6 +29,7 @@ func _ready():
 		set_physics_process(false)
 	elif TYPE == "PLAYER":
 		texture_die = load($Sprite.texture.get_path().replace(".png","_death.png"))
+# warning-ignore:return_value_discarded
 		$anim.connect("animation_finished",self,"_on_anim_animation_finished")
 	if $Sprite.texture != null:
 		texture_default = $Sprite.texture
@@ -41,6 +42,7 @@ func movement_loop():
 		motion = movedir.normalized() * SPEED
 	else:
 		motion = knockdir.normalized() * 100
+# warning-ignore:return_value_discarded
 	move_and_slide(motion, Vector2(0,0))
 
 func spritedir_loop():
@@ -88,7 +90,8 @@ func damage_loop():
 			knockdir = global_transform.origin - body.global_transform.origin
 
 func on_anim_animation_finished(_animation):
-	get_tree().change_scene("res://Player/PlayerDeath.tscn")
+	var switch = get_tree().change_scene("res://Player/PlayerDeath.tscn")
+	print("change to death scene status: " + str(switch))
 
 # item variable that we're passing in will just be a direct path to the sword scene
 func use_item(item):

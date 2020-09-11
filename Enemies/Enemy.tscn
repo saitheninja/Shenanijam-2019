@@ -158,6 +158,9 @@ visible = false
 position = Vector2( 0, 1 )
 shape = SubResource( 6 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
-volume_db = -30.0
+autoplay = true
+max_distance = 200.0
+attenuation = 2.0
+bus = "enemy"

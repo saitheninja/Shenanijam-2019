@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Engine/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Art/Tilesets/end.png" type="Texture" id=2]
@@ -8,16 +8,67 @@
 [ext_resource path="res://Art/Player/player_hurt.png" type="Texture" id=6]
 [ext_resource path="res://Engine/FadeIn.tscn" type="PackedScene" id=7]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="VisualShaderNodeTexture" id=1]
+output_port_for_preview = 0
+texture = ExtResource( 2 )
+
+[sub_resource type="VisualShader" id=2]
+code = "shader_type canvas_item;
+uniform sampler2D tex_frg_2;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Texture:2
+	vec4 tex_frg_2_read = texture(tex_frg_2, UV.xy);
+	vec3 n_out2p0 = tex_frg_2_read.rgb;
+	float n_out2p1 = tex_frg_2_read.a;
+
+// Output:0
+	COLOR.rgb = n_out2p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+custom_defines = ""
+graph_offset = Vector2( -409.584, -212.332 )
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2( 420, 200 )
+nodes/fragment/2/node = SubResource( 1 )
+nodes/fragment/2/position = Vector2( 60, 60 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 22
 extra_spacing_bottom = -4
 font_data = ExtResource( 4 )
 
-[sub_resource type="StyleBoxEmpty" id=2]
+[sub_resource type="StyleBoxEmpty" id=5]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=6]
 size = 8
 font_data = ExtResource( 4 )
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.0873362 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+width = 160
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -27,35 +78,64 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="GBGrey" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.52549, 0.541176, 0.552941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gbmargin" type="CenterContainer" parent="."]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 7.0
+margin_right = 8.0
+margin_bottom = 7.0
+rect_scale = Vector2( 0.9, 0.9 )
+size_flags_horizontal = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="gbmargin"]
 margin_right = 160.0
 margin_bottom = 144.0
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Menu" type="VBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Menu" type="VBoxContainer" parent="gbmargin"]
+margin_left = 2.0
+margin_top = 3.0
+margin_right = 158.0
+margin_bottom = 140.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="TextureRect" type="TextureRect" parent="Menu"]
-margin_right = 160.0
+[node name="TextureRect" type="TextureRect" parent="gbmargin/Menu"]
+margin_right = 156.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 24 )
 texture = ExtResource( 3 )
 stretch_mode = 6
 
-[node name="Buttons" type="VBoxContainer" parent="Menu"]
+[node name="Buttons" type="VBoxContainer" parent="gbmargin/Menu"]
 margin_top = 28.0
-margin_right = 160.0
-margin_bottom = 116.0
+margin_right = 156.0
+margin_bottom = 109.0
 rect_min_size = Vector2( 0, 64 )
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Title" type="Label" parent="Menu/Buttons"]
-margin_top = 6.0
-margin_right = 160.0
-margin_bottom = 57.0
-custom_fonts/font = SubResource( 1 )
+[node name="Title" type="Label" parent="gbmargin/Menu/Buttons"]
+margin_right = 156.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 3
@@ -65,35 +145,85 @@ align = 1
 valign = 1
 uppercase = true
 
-[node name="NewGameButton" parent="Menu/Buttons" instance=ExtResource( 5 )]
-margin_left = 50.0
-margin_top = 61.0
-margin_right = 110.0
+[node name="NewGameButton" parent="gbmargin/Menu/Buttons" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 55.0
+margin_right = 108.0
 margin_bottom = 81.0
 rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-custom_styles/focus = SubResource( 2 )
+custom_styles/focus = SubResource( 5 )
 button_mask = 0
 
-[node name="press enter" type="Label" parent="Menu/Buttons"]
+[node name="press enter" type="Label" parent="gbmargin/Menu/Buttons"]
 visible = false
 margin_top = 79.0
 margin_right = 160.0
 margin_bottom = 89.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "press enter"
 align = 1
 uppercase = true
 
-[node name="TextureRect2" type="TextureRect" parent="Menu"]
-margin_top = 120.0
-margin_right = 160.0
-margin_bottom = 144.0
+[node name="TextureRect2" type="TextureRect" parent="gbmargin/Menu"]
+margin_top = 113.0
+margin_right = 156.0
+margin_bottom = 137.0
 rect_min_size = Vector2( 0, 24 )
 rect_clip_content = true
 texture = ExtResource( 6 )
 stretch_mode = 6
 
-[node name="FadeIn" parent="." instance=ExtResource( 7 )]
-[connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
+[node name="FadeIn" parent="gbmargin" instance=ExtResource( 7 )]
+margin_left = 80.0
+margin_top = 72.0
+margin_right = 80.0
+margin_bottom = 72.0
+
+[node name="Shadow" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hshadow" type="TextureRect" parent="Shadow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 7.0
+margin_right = 8.0
+margin_bottom = 7.0
+rect_scale = Vector2( 0.9, 0.9 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 8 )
+expand = true
+stretch_mode = 1
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vshadow" type="TextureRect" parent="Shadow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 152.0
+margin_top = 7.0
+margin_right = 136.0
+margin_bottom = 23.0
+rect_rotation = 90.0
+rect_scale = Vector2( 0.9, 0.9 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 8 )
+expand = true
+stretch_mode = 1
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="fade_finished" from="gbmargin/FadeIn" to="." method="_on_FadeIn_fade_finished"]

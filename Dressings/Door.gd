@@ -7,7 +7,7 @@ onready var Player = get_node("../Player")
 func _ready():
 	$anim.play("open")
 
-func _process(delta):
+func _process(_delta):
 	if GridSnapper.grid_pos == GridSnapper.get_grid_pos():
 		if Camera.get_enemies() == 0:
 			if $anim.assigned_animation != "open":

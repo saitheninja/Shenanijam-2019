@@ -26,12 +26,11 @@ func state_default():
 	else:
 		anim_switch("idle")
 
-	if Input.is_action_just_pressed("a"):
+	if Input.is_action_just_pressed("ui_accept"):
 		use_item(preload("res://Player/WrenchSwing.tscn"))
 
-	if Input.is_action_just_pressed("b"):
-#		use_item(preload("res://items/bomb.tscn"))
-		pass
+	# if Input.is_action_just_pressed("b"):
+	#	use_item(preload("res://items/bomb.tscn"))
 
 func state_swing():
 	anim_switch("idle")

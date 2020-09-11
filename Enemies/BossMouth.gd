@@ -11,7 +11,7 @@ func _ready():
 	$anim.play("wiggle")
 	timer.set_one_shot(true)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	damage_loop()
 	if timer.is_stopped():
 		create_bullet()

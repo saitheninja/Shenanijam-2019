@@ -8,12 +8,6 @@ var movetimer = 0
 func _ready():
 	$anim.play("down")
 	movedir = dir.rand()
-	# add node to play audio, start it playing
-	audioplayer.stream = load("res://Sounds/enemy.wav")
-	audioplayer.set_bus("enemy")
-	#audioplayer.loop = true
-	audioplayer.play()
-#	print(audioplayer.get_stream_playback())
 
 func _physics_process(_delta):
 	movement_loop()

@@ -11,7 +11,7 @@
 [ext_resource path="res://Art/Tilesets/end.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 16 )
+extents = Vector2( 4, 16 )
 
 [node name="1Entry" type="Node"]
 
@@ -78,14 +78,13 @@ rotation = 1.5708
 [node name="bullets" type="Node" parent="."]
 
 [node name="TheEnd" type="Area2D" parent="."]
-position = Vector2( 1129, 72 )
+position = Vector2( 1120, 72 )
 monitorable = false
 script = ExtResource( 8 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TheEnd"]
+position = Vector2( 5, 0 )
+z_index = 1
 shape = SubResource( 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -93,4 +92,3 @@ margin_left = 1120.0
 margin_right = 1280.0
 margin_bottom = 144.0
 texture = ExtResource( 9 )
-[connection signal="body_entered" from="TheEnd" to="TheEnd" method="_on_TheEnd_body_entered"]

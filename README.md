@@ -12,7 +12,7 @@ Made with the Godot v3.1 engine.
 ### Resources
 
 - [Font](https://www.dafont.com/early-gameboy.font)
-- Noise by me banging away on an LMMS VST
+- Noise and/or music by me banging away on an LMMS VST
 - Art by me
 - Good code by the helpful tutorial makers of the internet
 - Bad code by me
@@ -26,7 +26,7 @@ Made with the Godot v3.1 engine.
 
 ### I Keep Looking Up These Docs
 
-- [nodes]
+- [signals](https://docs.godotengine.org/en/stable/getting_started/step_by_step/signals.html)
 
 ---
 
@@ -34,11 +34,21 @@ Made with the Godot v3.1 engine.
 
 ### v1.1 Goals
 
-- [ ] add sound 🔊
+- [ ] add sound and balance 🔊
+  - [ ] tentacles (squelch?)
+  - [ ] enemy1
+  - [ ] enemy2
+  - [ ] boss
+  - [ ] background
 - [ ] minor balance changes ⚖️
+- [x] minor hitbox tweaks 🤜
 - [ ] minor graphical updates 🖥️
+  - [ ] start screen start
+  - [ ] death screen 💀
 - [ ] touch support 🖐️
+- [ ] update to v3.2 🚀
 - [ ] update to v4.0 🚀
+- [ ] static typing ⌨️
 
 ---
 

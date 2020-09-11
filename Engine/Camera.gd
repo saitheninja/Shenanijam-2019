@@ -11,7 +11,9 @@ var shake : = false
 
 
 func _ready():
+# warning-ignore:return_value_discarded
 	$area.connect("body_entered",self,"body_entered")
+# warning-ignore:return_value_discarded
 	$area.connect("body_exited",self,"body_exited")
 	#$area.connect("area_exited",self,"area_exited")
 	set_duration(duration)

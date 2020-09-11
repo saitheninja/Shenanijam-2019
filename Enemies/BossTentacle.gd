@@ -9,5 +9,5 @@ func _ready():
 		texture_default = $Sprite.texture
 		texture_hurt = load($Sprite.texture.get_path().replace(".png","_hurt.png"))
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	damage_loop()

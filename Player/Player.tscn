@@ -267,6 +267,7 @@ visible = false
 shape = SubResource( 10 )
 
 [node name="hitbox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource( 11 )
@@ -279,6 +280,8 @@ script = ExtResource( 3 )
 [node name="Camera" parent="GridSnapper" instance=ExtResource( 4 )]
 current = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="noise" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
 autoplay = true
+max_distance = 1000.0
+bus = "fx"

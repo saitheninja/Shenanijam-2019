@@ -23,6 +23,9 @@ margin_right = 160.0
 margin_bottom = 144.0
 color = Color( 0, 0, 0, 0 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fade_in = SubResource( 1 )
